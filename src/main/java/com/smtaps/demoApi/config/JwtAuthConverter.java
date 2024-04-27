@@ -28,7 +28,7 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
 	@Value("${jwt.auth.converter.resource-id}")
 	private String principleAttribute;
 	@Value("${jwt.auth.converter.principle-attribute}")
-	private final String resourceId = "swweb-rest-api";
+	private final String resourceId = "portfolio_api";
 
 	@Override
 	public AbstractAuthenticationToken convert(@NonNull Jwt jwt) {
@@ -63,7 +63,7 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
 
 		resourceAccess = jwt.getClaim("resource_access");
 
-		if (resourceAccess.get("swweb-rest-api") == null) {
+		if (resourceAccess.get("portfolio_api") == null) {
 			return Set.of();
 		}
 		
